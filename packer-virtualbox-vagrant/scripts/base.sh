@@ -1,5 +1,6 @@
 # Update the box
 apt-get -y update
+apt-get -qs install linux-headers-$(uname -r) build-essential | grep ^Inst | cut -f2 -d\ | tr -s '\n\r' ' ' > /root/packages_to_delete.txt
 apt-get -y install linux-headers-$(uname -r) build-essential
 apt-get -y install zlib1g-dev libssl-dev libreadline-gplv2-dev
 apt-get -y install curl unzip
